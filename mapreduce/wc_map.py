@@ -1,7 +1,7 @@
 import sys
 
 for line in sys.stdin:
+    # Preprocess the input
     line = line.lower().rsplit()
     for word in line:
-        # Every instance of <word> will be sent to the same reducer for processing
-        print('{}\t{}'.format(word, 1))
+        # TODO: WRITE YOUR CODE HERE

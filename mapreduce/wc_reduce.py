@@ -5,10 +5,11 @@ words = {}
 for line in sys.stdin:
     split_line = line.rsplit()
     word = split_line[0]
+    count = int(split_line[1])
     if word in words:
-        words[word] += 1
+        # TODO: IMPLEMENT ME
     else:
-        words[word] = 1
+        # TODO: IMPLEMENT ME
 
 for key, val in words.items():
-    print('{}\t{}'.format(key, val))
+    # TODO: PRINT KEY-VALUE PAIRS
