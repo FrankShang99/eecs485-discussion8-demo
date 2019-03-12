@@ -3,15 +3,24 @@
 import socket
 
 def send_message():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # Construct a client socket object
+    clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     host = "localhost"
     port = 8181
-    s.connect((host, port))
-    s.send("./double.py".encode())
-    msg = s.recv(1024)
+    # Connect to the server (listen.py)
+    clientsocket.connect((host, port))
 
-    s.close()
+    # Send the executable file to the server
+    clientsocket.send("./double.py".encode())
+    
+    # Wait for an acknowledgement message from the server
+    msg = clientsocket.recv(1024)
+
+    # Close the socket connection
+    clientsocket.close()
+
+    # Print the message received from the server
     print("listener said:")
     print (msg.decode('ascii'))
 

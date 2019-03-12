@@ -11,25 +11,31 @@ WORK_ARR = []
 WORK_ARR_lock = Lock()
 
 def listen():
-    # create a socket object
+    # Construct a socket object
     serversocket = socket.socket(
                 socket.AF_INET, socket.SOCK_STREAM)
 
     host = 'localhost'
     port = 8181
 
+    # Bind the socket to a port number
+    # Similar to linking a phone to a phone number
     serversocket.bind((host, port))
 
     # Starts the socket listening for connection requests
+    # This does not block, it simply allows connections to be made
     serversocket.listen()
     print('Server socket is listening')
 
     while True:
+        # Establish a connection upon receiving a request
+        # Similar to answering a phone when it rings
         # The following blocks until a connection is requested in the request queue
         # https://github.com/python/cpython/blob/master/Lib/socket.py#L205-L219
         clientsocket, addr = serversocket.accept()
         print('Connection request accepted from: {}'.format(addr))
 
+        # Receive the message from the sender
         # The following blocks until recv buffer is non-empty
         data = clientsocket.recv(1024).decode()
         print('Message: {}'.format(data))
@@ -45,6 +51,7 @@ def listen():
         WORK_ARR_lock.release()
 
         msg = 'Gonna do that work\r\n'
+        # Send an acknowledgement message back to send.py
         clientsocket.send(msg.encode('ascii'))
         clientsocket.close()
 
