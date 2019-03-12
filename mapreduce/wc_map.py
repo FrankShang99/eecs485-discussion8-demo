@@ -1,5 +1,6 @@
 import sys
 
+# Output should be: <key '\t' value>
 for line in sys.stdin:
     # Preprocess the input
     line = line.lower().rsplit()

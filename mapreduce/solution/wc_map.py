@@ -1,5 +1,6 @@
 import sys
 
+# Output should be: <key '\t' value>
 for line in sys.stdin:
     line = line.lower().rsplit()
     for word in line:

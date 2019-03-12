@@ -7,5 +7,6 @@ for line in sys.stdin:
     split_line = line.rsplit()
     # TODO: IMPLEMENT ME
 
+# Output should be: <word '\t' word_count>
 for key, val in words.items():
     # TODO: PRINT KEY-VALUE PAIRS

@@ -9,5 +9,6 @@ for line in sys.stdin:
     count = int(split_line[1])
     words[word] += 1
 
+# Output should be: <word '\t' word_count>
 for key, val in words.items():
     print('{}\t{}'.format(key, val))
