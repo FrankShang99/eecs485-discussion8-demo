@@ -1,17 +1,15 @@
-#!/usr/bin/python3           # This is client.py file
+#!/usr/bin/python3
 
 import socket
 
-
-
 def send_message():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    host = "localhost"                        
+    host = "localhost"
     port = 8181
-    s.connect((host, port)) 
-    s.send("./double.py".encode())            
-    msg = s.recv(1024)                                 
+    s.connect((host, port))
+    s.send("./double.py".encode())
+    msg = s.recv(1024)
 
     s.close()
     print("listener said:")

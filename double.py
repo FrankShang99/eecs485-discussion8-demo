@@ -3,6 +3,6 @@
 import sys
 
 for line in sys.stdin:
-    if line.strip() == '':
+    if not line.strip():
         continue
     print(int(line.strip()) * 2)
