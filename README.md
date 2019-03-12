@@ -5,10 +5,45 @@ We hope that these demos provide a foundation for you to get started on Project 
 <br><br>
 
 ## mapreduce
-The intent of this directory is to provide a Python (AKA human-readable) solution to the simple word count job illustrated in Bash in the project spec [here](https://eecs485staff.github.io/p4-mapreduce/#walk-through-example).
+To run the finished job, use the following:
+```bash
+$ cat input/* | python wc_map.py | sort | python wc_reduce.py
+```
+You can also use the script `wc.sh`, which is simply the above bash command written in an executable script
+```bash
+$ ./wc.sh
+```
+You should see the following output when completed:
+```shell
+(targaryen?)	1
+are	            1
+arya	        1
+best	        1
+characters	    1
+daenerys	    1
+game	        1
+jon	            1
+lannister	    1
+ned	            1
+of	            1
+snow	        1
+stark	        2
+targaryen	    1
+the	            1
+thrones	        1
+tyrion	        1
+```
+<br>
 
-This solution is highly simplified with the intent to give you an idea of how to write MapReduce jobs. This is not a memory-efficient implementation, due to the use of a dictionary in our reducer, but it's necessary in order to keep the simplicity for this demo.
+## threads_and_sockets
+To run this portion of the demo, open two terminal windows and navigate to the `threads_and_sockets` directory.
 
-The main purpose of the mapper is identify key-value pairs that will allow us to accomplish the computation we desire in a parallel manner. We do this by associating keys to values, **knowing that each reducer is going to receive every key for a each given value**.
-
-In this case, we want to map each word to a value of 1, `<word, 1>`, so that the reducer will receive a count value each individual occurrence of the word.
+From one window, run the following:
+```bash
+$ python listen.py
+```
+From the other window, run the following:
+```bash
+$ python send.py
+```
+There are lots of comments explaining the complicated socket code that you hopefully find helpful. Please reach out if you have any questions.
