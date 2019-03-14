@@ -37,6 +37,15 @@ tyrion	        1
 
 ## threads_and_sockets
 To run this portion of the demo, open two terminal windows and navigate to the `threads_and_sockets` directory.
+Then, create and activate a virtual environment.
+```bash
+$ python3 -m venv env
+$ source env/bin/activate
+```
+Then, install the dependencies for the demo.
+```bash
+$ pip install -e .
+```
 
 From one window, run the following:
 ```bash
